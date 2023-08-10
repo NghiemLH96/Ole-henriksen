@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header>
+        <div class="freeship__text">FREE STANDARD SHIPPING TO VIETNAM OVER ₫2857143</div>
+            <div class="header__container">
+                <img src="../Asset/Ole-henriksen logo copy.png" class="brandLogo" alt="loading failed please try again!">
+                <nav class="header__menuList">
+                    <ul class="navbar">
+                        <li type="none"><a class="navbar__link" href="">SKIN CARE</a></li>
+                        <li type="none"><a class="navbar__link" href="">COMING SOON</a></li>
+                        <li type="none"><a class="navbar__link" href="">NEW</a></li>
+                        <li type="none"><a class="navbar__link" href="">BESTSELLERS</a></li>
+                        <li type="none"><a class="navbar__link" href="">OFFER</a></li>
+                        <li type="none"><a class="navbar__link" href="">GLOW CYCLE FINDER</a></li>
+                        <li type="none"><a class="navbar__link" href="">ABOUT</a></li>
+                    </ul>
+                </nav>
+                <nav class="iconBox">  
+                    <a href=""><span class="material-symbols-outlined iconBox__icon">
+                        favorite
+                        </span></a>
+                    <a><span class="material-symbols-outlined iconBox__icon">
+                        search
+                        </span></a>
+                    <a href="./login.html" id="login_icon"><span class="material-symbols-outlined iconBox__icon">
+                        person
+                        </span></a>
+                    <a><span class="material-symbols-outlined iconBox__icon">
+                        shopping_bag
+                        </span></a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <form class="Form" onsubmit="login(event)">
+            <h1 class="Form__pageTitle">Log in</h1>
+            <div class="Form__pageInput">
+                <input class="inputInfo" type="text" name="email" placeholder="Email">
+            </div>
+            <div class="Form__errorArea">
+                <span id="email_formatError" class="Form__errorArea__errorText">Email format isn't correct</span>
+                <span id="email_notExist" class="Form__errorArea__errorText">Email not exist</span>
+            </div>
+            <div class="Form__pageInput">
+                <input class="inputInfo" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="Form__errorArea">
+                <span id="password_formatError" class="Form__errorArea__errorText">Password need at least 8 letters</span>
+                <span id="password_incorrect" class="Form__errorArea__errorText">Password isn't correct</span>
+            </div>
+            <button class="Form__Button">SIGN IN</button>
+            <a href="./page/register.html">Create account</a>
+        </form>
+    </div>
+    <script src="./login.js"></script>
+</body>
+</html>
