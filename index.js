@@ -77,6 +77,7 @@ function nextPage(){
 function renderProduct(arrProducts) {
     let renderInner = "";
     let innerTotal = 0;
+    console.log(arrProducts);
     for (let i = 0; i < arrProducts.length; i++) {
         if(i>=start && i<end){
             innerTotal++
@@ -102,7 +103,7 @@ function renderProduct(arrProducts) {
     document.getElementById("total").innerText = `${innerTotal} PRODUCTS`
     document.getElementById("productContainer").innerHTML = renderInner;
 }
-renderProduct(productsList.id)
+renderProduct(productsList)
 
 
 function checkProductStatus(Product) {
@@ -210,6 +211,7 @@ function changeDetailbySize(id) {
 
 function logout() {
     localStorage.removeItem("CheckLogin")
+    checkLogin()
 }
 
 let usersList = JSON.parse(localStorage.getItem("usersList"));
