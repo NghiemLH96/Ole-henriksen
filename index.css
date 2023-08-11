@@ -56,6 +56,7 @@ body{
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    display: none;
 }
 .iconBox{
     display: flex;
@@ -69,6 +70,7 @@ body{
     color: black;
 }
 
+/* body */
 .productList{
  display: flex;
  flex-direction: column;
@@ -225,4 +227,36 @@ body{
 }
 .originalPrice{
     text-decoration:line-through;
+}
+.producList__textBox{
+    height: 250px;
+    width: 100%;
+    padding: 80px 50px;
+    background-color: #FFFFFF;
+}
+.producList__textBox__text{
+    font-size: 15px;
+    line-height: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.producList__pagination{
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+}
+.producList__pagination__page{
+    display: flex;
+    column-gap: 20px;
+    cursor: pointer;
+}
+.pagination__pageNumber{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style-type: none;
+}
+.active__page{
+    text-decoration: underline;
+    font-weight: 900;
+    
 }
