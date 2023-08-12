@@ -207,6 +207,10 @@ body{
     padding: 0px 15px;
     cursor: pointer;
 }
+.link{
+    text-decoration: none;
+    color: black;
+}
 .Notify-Me{
     width: 100%;
     height: 100%;

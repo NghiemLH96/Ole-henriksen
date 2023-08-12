@@ -119,6 +119,7 @@ function register(event) {
             email: event.target.email.value,
             password: event.target.password.value,
             avatar: event.target.avatar.value,
+            cart:[],
         })
         localStorage.setItem("usersList", JSON.stringify(usersList))
     } else {
@@ -131,6 +132,7 @@ function register(event) {
             email: event.target.email.value,
             password: event.target.password.value,
             avatar: event.target.avatar.value,
+            cart:[],
         }]))
     }
     /* Create success then transfer to another tab */
