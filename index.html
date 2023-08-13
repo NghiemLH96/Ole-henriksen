@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <div class="freeship__text">FREE STANDARD SHIPPING TO VIETNAM OVER ₫2857143</div>
         <div class="header__container">
             <img src="./Asset/Ole-henriksen logo copy.png" class="brandLogo" alt="loading failed please try again!">
@@ -33,9 +33,12 @@
                 <a href="./index.html"><span class="material-symbols-outlined iconBox__icon">
                         home
                     </span></a>
-                <a><span class="material-symbols-outlined iconBox__icon">
+                <div class="iconBox__searchBox">
+                    <button class="search__btn"><span onclick="search_input_display()" class="material-symbols-outlined iconBox__icon">
                         search
-                    </span></a>
+                    </span></button>
+                    <input id="search_input" class="search_input" oninput="search()" type="text" placeholder="Search">
+                </div>
                 <a href="./page/login.html" id="login_icon"><span onclick=""
                         class="material-symbols-outlined iconBox__icon">
                         person
@@ -44,30 +47,63 @@
                         class="material-symbols-outlined iconBox__icon">
                         logout
                     </span></a>
-                <a href="./page/cart.html"><span class="material-symbols-outlined iconBox__icon">
+                <div class="iconBox__cartBox">
+                    <a href="./page/cart.html"><span class="material-symbols-outlined iconBox__icon">
                         shopping_bag
                     </span></a>
+                    <span class="cartBox__totalProducts" id="cartBox__totalProducts"></span>
+                </div>
             </nav>
         </div>
         </div>
     </header>
     <div class="body">
         <section class="productList">
-            <h1 class="productList__title">SHOP ALL SKINCARE</h1>
+            <div class="productList__banner">
+                <img src="./Asset/Shop-all-product/OH_BananaSerum_TruthCollectionDesktopBanner-002-scaled.jpg" alt="">
+                <h1 class="productList__title">SHOP ALL SKINCARE</h1>
+            </div>
             <div class="productList__sumaryBanner">
                 <span id="total"></span>
                 <div class="productList__sumaryBanner__buttonBox">
                     <div class="sumaryBanner__selector">
-                        <button class="sumaryBanner__selector__button">FILTER </button>
-                        <span class="material-symbols-outlined">
-                            expand_more
-                        </span>
+                        <div class="sumaryBanner__selector__dropDownBox">
+                            <div class="dropDownBox__dropDownSelector" >FILTER </div>
+                            <span class="material-symbols-outlined">
+                                expand_more
+                            </span>
+                            <div class="dropDownBox__dropDownItem">
+                                <div class="dropDownBox__dropDownItemList">
+                                    <div class="dropDownIcon">
+                                        <input type="checkbox" name="catalogue" checked > ALL <br>
+                                        <input type="checkbox" name="catalogue"> BESTSELLER <br>
+                                        <input type="checkbox" name="catalogue"> MOISTURIZER <br>
+                                        <input type="checkbox" name="catalogue"> TONER <br>
+                                        <input type="checkbox" name="catalogue"> SERUM <br>
+                                        <input type="checkbox" name="catalogue"> SUNSCREEN <br>
+                                        <input type="checkbox" name="catalogue"> MASK <br>
+                                        <input type="checkbox" name="catalogue"> EYES + LIP CARE <br>
+                                        <input type="checkbox" name="catalogue"> SET KIT <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="sumaryBanner__selector">
-                        <button class="sumaryBanner__selector__button">SORT </button>
-                        <span class="material-symbols-outlined">
-                            expand_more
-                        </span>
+                        <div class="sumaryBanner__selector__dropDownBox">
+                            <div class="dropDownBox__dropDownSelector">SORT </div>
+                            <span class="material-symbols-outlined">
+                                expand_more
+                            </span>
+                            <div class="dropDownBox__dropDownItem">
+                                <div class="dropDownBox__dropDownItemList">
+                                    <div class="dropDownIcon">
+                                        <input type="radio" name="sort" onclick="sortByPrice()"> PRICE <br>
+                                        <input type="radio" name="sort" onclick="sortByRate()"> TOP RATED
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

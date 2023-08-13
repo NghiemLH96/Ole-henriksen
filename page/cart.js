@@ -9,7 +9,7 @@ function checkLogin() {
         document.getElementById("login_icon").style.display = "none";
         document.getElementById("logout_icon").style.display = "block";
         nameDisplay.style.display = "block";
-        nameDisplay.innerText = (usersList.find(item => item.id == CheckLogin).fistName) + (usersList.find(item => item.id == CheckLogin).lastName);
+        nameDisplay.innerText = "Hi," + (usersList.find(item => item.id == CheckLogin).fistName)
         avatarDisplay.style.display = "block"
         avatarDisplay.src = usersList.find(item => item.id == CheckLogin).avatar;
     } else {
@@ -21,36 +21,40 @@ function checkLogin() {
 checkLogin()
 
 /* render product in cart */
-let userCart = usersList.find(user => user.id == localStorage.getItem("CheckLogin")).cart;
-function renderCartProduct() {
+let userCarts = usersList.find(user => user.id == localStorage.getItem("CheckLogin")).cart;
+function renderCartProduct(cartProducts) {
     if (localStorage.getItem("CheckLogin")) {
         let userCartInner = "";
         let sumaryInner="";
-        for (let i = 0; i < userCart.length; i++) {
+        for (let i = 0; i < cartProducts.length; i++) {
             userCartInner +=
                 `
             <tr>
                 <td>${i+1}</td>
-                <td class="tbody__imgContainer"><img class="tbody__productImg" src=".${userCart[i].productImg}" alt=""></td>
-                <td >${userCart[i].productName}</td>
-                <td >${userCart[i].size}</td>
-                <td >${userCart[i].price} /pc</td>
+                <td class="tbody__imgContainer"><img class="tbody__productImg" src=".${cartProducts[i].productImg}" alt=""></td>
+                <td >${cartProducts[i].productName}</td>
+                <td >${cartProducts[i].size} oz</td>
+                <td >${cartProducts[i].price} /pc</td>
                 <td >
-                <button onclick="adjustQuantity(${userCart[i].id},'-')" class="tbody__adjustBtn">-</button>
-                ${userCart[i].quantity}
-                <button onclick="adjustQuantity(${userCart[i].id},'+')" class="tbody__adjustBtn">+</button>
+                <button onclick="adjustQuantity(${cartProducts[i].id},'-')" class="tbody__adjustBtn">-</button>
+                ${cartProducts[i].quantity}
+                <button onclick="adjustQuantity(${cartProducts[i].id},'+')" class="tbody__adjustBtn">+</button>
                 </td>
-                <td >${userCart[i].quantity*userCart[i].price}</td>
-                <td><button onclick="deleteItem(${userCart[i].id})" class="tbody__deleteBtn">Delete</button></td>
+                <td >${cartProducts[i].quantity*cartProducts[i].price}</td>
+                <td><button onclick="deleteItem(${cartProducts[i].id})" class="tbody__deleteBtn">Delete</button></td>
             </tr>
             `
         }
+        //show total quantity of products in user cart
+        let userCart = usersList.find(user=>user.id == localStorage.getItem("CheckLogin")).cart;
+        document.getElementById("cartBox__totalProducts").innerText = userCart.reduce((result,nextItem)=>{return result + nextItem.quantity},0)
+        //show sumary of tfoot
         sumaryInner =
         `
-            <th colspan="4">Total Item:  ${userCart.reduce((result,nextItem)=>{
+            <th colspan="4">Total Item:  ${cartProducts.reduce((result,nextItem)=>{
                 return result + nextItem.quantity
             },0)}</th>
-            <th colspan="4">Total Cost:  ${userCart.reduce((result,nextItem)=>{
+            <th colspan="4">Total Cost:  ${cartProducts.reduce((result,nextItem)=>{
                 return result + (nextItem.quantity*nextItem.price)
             },0)}</th>
         `
@@ -58,22 +62,21 @@ function renderCartProduct() {
         document.getElementById("renderProductTable__tbody").innerHTML=userCartInner;
     }
 }
-renderCartProduct()
+renderCartProduct(userCarts)
 
 
 /* delete product in user cart */
 function deleteItem(productId){
     if (confirm("Do you submit to remove this product?")) {
-        userCart=userCart.filter(item => item.id != productId);
+        userCarts=userCarts.filter(item => item.id != productId);
         usersList=usersList.map(user =>{
             if(user.id == localStorage.getItem("CheckLogin")){
-                user.cart = userCart
+                user.cart = userCarts
                 return user
             }
             return user
         })
-        renderCartProduct()
-        console.log(usersList);
+        renderCartProduct(userCarts)
         localStorage.setItem("usersList",JSON.stringify(usersList));
     }else{
         return;
@@ -94,11 +97,31 @@ function adjustQuantity(productId,type) {
         product.quantity+=1;
     }
     localStorage.setItem("usersList",JSON.stringify(usersList))
-    renderCartProduct()
+    renderCartProduct(userCarts)
 }
 
 //log out and clear CheckLogin storage
 function logout() {
     localStorage.removeItem("CheckLogin")
     window.location.href="../index.html"
+}
+
+//remove accent and uppercase of search input
+function removeAccentLowerCase(str) {
+    return str.normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
+}
+
+//search product by name
+function search() {
+    let userCarts = [...usersList.find(user => user.id == localStorage.getItem("CheckLogin")).cart];
+    let searchInput = document.getElementById("search_input").value;
+    userCarts = userCarts.filter(item => removeAccentLowerCase(item.productName).includes(removeAccentLowerCase(searchInput)))
+    renderCartProduct(userCarts)
+}
+
+//hidden search input
+function search_input_display() {
+    document.getElementById("search_input").classList.toggle("expanded")
 }

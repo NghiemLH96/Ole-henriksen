@@ -98,6 +98,12 @@ function renderProduct(arrProducts) {
             `
         }
     }
+    //show total quantity of product in user cart
+    if (localStorage.getItem("CheckLogin")) {
+        let usersList = JSON.parse(localStorage.getItem("usersList"));
+        let userCart = usersList.find(user=>user.id == localStorage.getItem("CheckLogin")).cart;
+        document.getElementById("cartBox__totalProducts").innerText = userCart.reduce((result,nextItem)=>{return result + nextItem.quantity},0)
+    };
     document.getElementById("total").innerText = `${innerTotal} PRODUCTS`
     document.getElementById("productContainer").innerHTML = renderInner;
     
@@ -194,6 +200,7 @@ function checkStatus(product) {
     
 }
 
+//alert for which product was sold out
 function soldOutAlert() {
     alert("this product was sold out!")
 }
@@ -232,7 +239,6 @@ for (const x in productsList) {
 }
 
 //check user was login yet
-
 function checkLogin() {
     let usersList = JSON.parse(localStorage.getItem("usersList"));
     let nameDisplay = document.getElementById("userDetailName");
@@ -242,7 +248,7 @@ function checkLogin() {
         document.getElementById("login_icon").style.display = "none";
         document.getElementById("logout_icon").style.display = "block";
         nameDisplay.style.display = "block";
-        nameDisplay.innerText = (usersList.find(item => item.id == CheckLogin).fistName) + (usersList.find(item => item.id == CheckLogin).lastName);
+        nameDisplay.innerText = "Hi," + (usersList.find(item => item.id == CheckLogin).fistName)
         avatarDisplay.style.display = "block"
         avatarDisplay.src = usersList.find(item => item.id == CheckLogin).avatar;
     } else {
@@ -261,6 +267,7 @@ function logout() {
     checkLogin()
 }
 
+//add product to user cart then render again
 function addToBag(id) {
     let usersList = JSON.parse(localStorage.getItem("usersList"));
    if(localStorage.getItem("CheckLogin")){
@@ -294,11 +301,13 @@ function addToBag(id) {
                         if(result.length==0){
                             userCart.push(buyingProduct)
                             localStorage.setItem("usersList",JSON.stringify(usersList))
+                            renderProduct(productsList)
                             return;
                         }else{
                             let inCart = userCart.find(item=> item.id == id)
                             inCart.quantity+=1
                             localStorage.setItem("usersList",JSON.stringify(usersList))
+                            renderProduct(productsList)
                             return;
                         }
                     }
@@ -322,15 +331,66 @@ function addToBag(id) {
             if(result.length==0){
                 userCart.push(buyingProduct)
                 localStorage.setItem("usersList",JSON.stringify(usersList))
+                renderProduct(productsList)
                 return
             }else{
                 let inCart = userCart.find(item=> item.id == id)
                 inCart.quantity+=1
                 localStorage.setItem("usersList",JSON.stringify(usersList))
+                renderProduct(productsList)
                 return
             }
             }
         }
     }  
     }
+}
+
+
+//item Sort by Price or rating
+let PriceSortFlag=false;
+function sortByPrice() {
+    let productList= JSON.parse(localStorage.getItem("productsList"));
+    if(PriceSortFlag){
+        let productSort= productList.sort((a,b)=>{
+            return a.price-b.price
+        })
+        console.log("11111",productSort);
+    }else{
+        let productSort= productList.sort((a,b)=>{
+            return b.price-a.price
+        })
+        console.log("222222",productSort);
+    }
+    PriceSortFlag=!PriceSortFlag;
+    renderProduct(productList)   
+}
+
+function sortByRate() {
+    let productList= JSON.parse(localStorage.getItem("productsList"));
+        let productSort= productList.sort((a,b)=>{
+            return b.rating-a.rating
+        })
+        console.log(productSort);
+    renderProduct(productList)
+}
+
+//remove input accent and upper case when search
+function removeAccentLowerCase(str) {
+    return str.normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
+}
+
+//search product by name 
+function search() {
+    let allProduct = [...JSON.parse(localStorage.getItem("productsList"))]
+    let searchInput = document.getElementById("search_input").value;
+    allProduct = allProduct.filter(item => removeAccentLowerCase(item.productName).includes(removeAccentLowerCase(searchInput)))
+    renderProduct(allProduct)
+}
+
+//hidden search input
+function search_input_display() {
+    document.getElementById("search_input").classList.toggle("expanded")
 }
