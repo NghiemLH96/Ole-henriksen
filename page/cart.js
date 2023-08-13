@@ -96,3 +96,9 @@ function adjustQuantity(productId,type) {
     localStorage.setItem("usersList",JSON.stringify(usersList))
     renderCartProduct()
 }
+
+//log out and clear CheckLogin storage
+function logout() {
+    localStorage.removeItem("CheckLogin")
+    window.location.href="../index.html"
+}

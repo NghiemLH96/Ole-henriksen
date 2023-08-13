@@ -232,9 +232,9 @@ for (const x in productsList) {
 }
 
 //check user was login yet
-let usersList = JSON.parse(localStorage.getItem("usersList"));
 
 function checkLogin() {
+    let usersList = JSON.parse(localStorage.getItem("usersList"));
     let nameDisplay = document.getElementById("userDetailName");
     let avatarDisplay = document.getElementById("userDetailImg");
     if (localStorage.getItem("CheckLogin")) {
@@ -262,6 +262,7 @@ function logout() {
 }
 
 function addToBag(id) {
+    let usersList = JSON.parse(localStorage.getItem("usersList"));
    if(localStorage.getItem("CheckLogin")){
     //find user cart
     let checkLogin=localStorage.getItem("CheckLogin");
