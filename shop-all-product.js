@@ -271,10 +271,9 @@ function addToBag(id) {
         return;
     }else{
         //find product detail
-        for (const i in productsList) {
+        for (let i=0 ; i < productsList.length ; i++) {
             //for which product have 2 size above
             if (productsList[i].id.length>1) {
-                console.log("1111");
                 for (let j=0 ; j< productsList[i].id.length ;j++ ) {
                     if (productsList[i].id[j]==id) {
                         let buyingProduct={
@@ -303,8 +302,8 @@ function addToBag(id) {
                         }
                     }
                 }
-            }else{
-                let product = productsList.find(item => item.id==id);
+            }else if(productsList[i].id == id){
+                let product = productsList.find(item => item.id == id) || {}
                 let buyingProduct={
                     id:product.id,
                     productImg:product.productImg,
@@ -316,19 +315,19 @@ function addToBag(id) {
                     price:product.price,
                     quantity:1
                 }
-                let result= userCart.filter(item =>{
-                    return item.id == id
-                })
-                if(result.length==0){
-                    userCart.push(buyingProduct)
-                    localStorage.setItem("usersList",JSON.stringify(usersList))
-                    return;
-                }else{
-                    let inCart = userCart.find(item=> item.id == id)
-                    inCart.quantity+=1
-                    localStorage.setItem("usersList",JSON.stringify(usersList))
-                    return;
-                }
+            let result= userCart.filter(item =>{
+                return item.id == id
+            })
+            if(result.length==0){
+                userCart.push(buyingProduct)
+                localStorage.setItem("usersList",JSON.stringify(usersList))
+                return
+            }else{
+                let inCart = userCart.find(item=> item.id == id)
+                inCart.quantity+=1
+                localStorage.setItem("usersList",JSON.stringify(usersList))
+                return
+            }
             }
         }
     }  
