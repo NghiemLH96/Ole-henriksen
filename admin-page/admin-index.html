@@ -3,85 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../index.css">
+    <title>Shop All Skincare</title>
+    <link rel="stylesheet" href="./admin-index.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+
 <body>
     <header class="header">
-        <div class="freeship__text">FREE STANDARD SHIPPING TO VIETNAM OVER ₫2857143</div>
+        <div class="freeship__text">Welcome! Administrator</div>
         <div class="header__container">
             <img src="../Asset/Ole-henriksen logo copy.png" class="brandLogo" alt="loading failed please try again!">
-            <!-- <nav class="header__menuList">
+            <nav class="header__menuList">
                 <ul class="navbar">
-                    <li type="none"><a class="navbar__link" href="">SKIN CARE</a></li>
-                    <li type="none"><a class="navbar__link" href="">COMING SOON</a></li>
-                    <li type="none"><a class="navbar__link" href="">NEW</a></li>
-                    <li type="none"><a class="navbar__link" href="">BESTSELLERS</a></li>
-                    <li type="none"><a class="navbar__link" href="">OFFER</a></li>
-                    <li type="none"><a class="navbar__link" href="">GLOW CYCLE FINDER</a></li>
-                    <li type="none"><a class="navbar__link" href="">ABOUT</a></li>
+                    <li type="none" class="navbar__link" onclick="changeWorkingPage('ADMIN INFO')">ADMIN INFO</li>
+                    <li type="none" class="navbar__link" onclick="changeWorkingPage('USERS MANAGER')">USERS MANAGER</li>
+                    <li type="none" class="navbar__link" onclick="changeWorkingPage('PRODUCT MANAGER')">PRODUCT MANAGER</li>
                 </ul>
-            </nav> -->
+            </nav>
             <nav class="iconBox">
                 <div class="iconBox__userDetail">
                     <img id="userDetailImg" class="iconBox__userDetail__avatar" id="" src="" alt="">
                     <span id="userDetailName" class="iconBox__userDetail__name"></span>
                 </div>
-                <a href="../index.html"><span class="material-symbols-outlined iconBox__icon">
-                        home
-                    </span></a>
-                    <div class="iconBox__searchBox">
-                        <button class="search__btn"><span onclick="search_input_display()" class="material-symbols-outlined iconBox__icon">
-                            search
-                        </span></button>
-                        <input id="search_input" class="search_input" oninput="search()" type="text" placeholder="Search">
-                    </div>
-                <a href="./page/login.html" id="login_icon"><span onclick=""
-                        class="material-symbols-outlined iconBox__icon">
-                        person
-                    </span></a>
-                <a href="" id="logout_icon" style="display: none;"><span onclick="logout()"
+                <a href="" id="logout_icon"><span onclick="logout()"
                         class="material-symbols-outlined iconBox__icon">
                         logout
                     </span></a>
-                <div class="iconBox__cartBox">
-                    <a href="./cart.html"><span class="material-symbols-outlined iconBox__icon">
-                        shopping_bag
-                    </span></a>
-                    <span class="cartBox__totalProducts" id="cartBox__totalProducts"></span>
                 </div>
             </nav>
         </div>
         </div>
     </header>
     <div class="body">
-        <section class="shoppingCart">
+        <section class="productList">
             <div class="productList__banner">
-                <img src="../Asset/Shop-all-product/OH_BananaSerum_TruthCollectionDesktopBanner-002-scaled.jpg" alt="">
-                <h1 class="productList__title">SHOPPING CART</h1>
+                <img src="../Asset/BANNER/admin banner.jpg" alt="">
+                <h1 class="productList__title">ADMINSTRATOR</h1>
             </div>
-            <table class="renderProductTable" border="1px solid black">
-                <thead class="renderProductTable__thead">
-                    <th>#</th>
-                    <th>Product Image</th>
-                    <th>Product Name</th>
-                    <th>Size</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total Cost</th>
-                    <th>Action</th>
-                </thead>
-                <tbody id="renderProductTable__tbody" class="renderProductTable__tbody">
-                    
-                </tbody>
-                <tfoot id="renderProductTable__tfoot" class="renderProductTable__tfoot">
-                    
-                </tfoot>
-            </table>
-            <div class="productList__buttonBox">
-                <button id="checkOutBtn" onclick="checkOut()" class="productList__buttonBox__btn">CHECKOUT</button>
+            <div class="working-container">
+                
             </div>
         </section>
     </div>
@@ -104,7 +65,7 @@
                     <p>Email us at anytime: <br>customerservice@olehenriksen.com</p>
                 </div>
                 <div class="footer__content">
-                    <h3 class="footer__content__title">ABOUT</h3>
+                    <h3 class="footer__content__title" >ABOUT</h3>
                     <a href="">About Ole Henriksen</a>
                     <a href="">Ole Glow</a>
                     <a href="">Find A Store</a>
@@ -137,6 +98,9 @@
             </div>
         </div>
     </footer>
-    <script src="./cart.js"></script>
+
+    <!-- <script src="./products.js"></script> -->
+    <script src="./admin-index.js"></script>
 </body>
+
 </html>

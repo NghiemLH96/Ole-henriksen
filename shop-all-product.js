@@ -98,17 +98,25 @@ function renderProduct(arrProducts) {
             `
         }
     }
-    //show total quantity of product in user cart
+    showTotalProductsIncart()
+    document.getElementById("total").innerText = `${innerTotal} PRODUCTS`
+    document.getElementById("productContainer").innerHTML = renderInner;
+    for (let i = 0; i < arrProducts.length; i++) {
+        if (i >= start && i < end){
+            displayBySize(arrProducts[i].id[0])
+        }
+}
+}
+renderProduct(productsList)
+
+//show total quantity of product in user cart
+function showTotalProductsIncart() {
     if (localStorage.getItem("CheckLogin")) {
         let usersList = JSON.parse(localStorage.getItem("usersList"));
         let userCart = usersList.find(user=>user.id == localStorage.getItem("CheckLogin")).cart;
         document.getElementById("cartBox__totalProducts").innerText = userCart.reduce((result,nextItem)=>{return result + nextItem.quantity},0)
     };
-    document.getElementById("total").innerText = `${innerTotal} PRODUCTS`
-    document.getElementById("productContainer").innerHTML = renderInner;
-    
 }
-renderProduct(productsList)
 
 
 //create size button
@@ -301,13 +309,13 @@ function addToBag(id) {
                         if(result.length==0){
                             userCart.push(buyingProduct)
                             localStorage.setItem("usersList",JSON.stringify(usersList))
-                            renderProduct(productsList)
+                            showTotalProductsIncart()
                             return;
                         }else{
                             let inCart = userCart.find(item=> item.id == id)
                             inCart.quantity+=1
                             localStorage.setItem("usersList",JSON.stringify(usersList))
-                            renderProduct(productsList)
+                            showTotalProductsIncart()
                             return;
                         }
                     }
@@ -331,13 +339,13 @@ function addToBag(id) {
             if(result.length==0){
                 userCart.push(buyingProduct)
                 localStorage.setItem("usersList",JSON.stringify(usersList))
-                renderProduct(productsList)
+                showTotalProductsIncart()
                 return
             }else{
                 let inCart = userCart.find(item=> item.id == id)
                 inCart.quantity+=1
                 localStorage.setItem("usersList",JSON.stringify(usersList))
-                renderProduct(productsList)
+                showTotalProductsIncart()
                 return
             }
             }
@@ -393,4 +401,41 @@ function search() {
 //hidden search input
 function search_input_display() {
     document.getElementById("search_input").classList.toggle("expanded")
+}
+
+//product filter
+let currentCatalogue = `ALL PRODUCT`;
+function activeCatalogue(active) {
+    let catalogueList = document.getElementsByClassName("navbar__link");
+    console.log(catalogueList);
+    for (const i in catalogueList) {
+        console.log(catalogueList[i].innerText);
+        if (catalogueList[i].innerText == active) {
+            catalogueList[i].classList.add("navbar__link__active")
+        }if(catalogueList[i].innerText != active && catalogueList[i].innerText!= undefined){
+            catalogueList[i].classList.remove("navbar__link__active")
+        }
+    }
+}
+
+function productFilter(productCatalogue){
+    let productList = JSON.parse(localStorage.getItem("productsList"))
+    if (productCatalogue=="ALL PRODUCT") {
+        document.getElementsByClassName("productList__title")[0].innerText="SHOP ALL PRODUCT"
+        activeCatalogue(productCatalogue)
+        renderProduct(productsList)
+        return;
+    }else if(productCatalogue == `BESTSELLER`){
+        document.getElementsByClassName("productList__title")[0].innerText="BEST SELLER"
+        let filterProduct = productList.filter(item => item.introduceText=="BESTSELLER")
+        activeCatalogue(productCatalogue)
+        renderProduct(filterProduct)
+        return;
+    }else{
+        document.getElementsByClassName("productList__title")[0].innerText=productCatalogue;
+        let filterProduct = productList.filter(item => item.catalogue==productCatalogue)
+        activeCatalogue(productCatalogue)
+        renderProduct(filterProduct)
+        return;
+    }
 }

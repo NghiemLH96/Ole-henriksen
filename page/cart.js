@@ -125,3 +125,18 @@ function search() {
 function search_input_display() {
     document.getElementById("search_input").classList.toggle("expanded")
 }
+
+//check out user cart
+function checkOut(){
+    let checkOutOrders = JSON.parse(localStorage.getItem("checkOutOrders")) || [];
+    let user = usersList.find(user => user.id == localStorage.getItem("CheckLogin"))
+    let checkOutCart = {...user}
+    if (checkOutCart.cart.length) {
+        checkOutCart.orderId = new Date()*Math.random()
+        checkOutOrders.push(checkOutCart)
+        localStorage.setItem("checkOutOrders",JSON.stringify(checkOutOrders))
+        user.cart = [];
+        localStorage.setItem("usersList",JSON.stringify(usersList));
+        renderCartProduct(user.cart)
+    }
+}

@@ -14,17 +14,18 @@
         <div class="freeship__text">FREE STANDARD SHIPPING TO VIETNAM OVER ₫2857143</div>
         <div class="header__container">
             <img src="./Asset/Ole-henriksen logo copy.png" class="brandLogo" alt="loading failed please try again!">
-            <!-- <nav class="header__menuList">
+            <nav class="header__menuList">
                 <ul class="navbar">
-                    <li type="none"><a class="navbar__link" href="">SKIN CARE</a></li>
-                    <li type="none"><a class="navbar__link" href="">COMING SOON</a></li>
-                    <li type="none"><a class="navbar__link" href="">NEW</a></li>
-                    <li type="none"><a class="navbar__link" href="">BESTSELLERS</a></li>
-                    <li type="none"><a class="navbar__link" href="">OFFER</a></li>
-                    <li type="none"><a class="navbar__link" href="">GLOW CYCLE FINDER</a></li>
-                    <li type="none"><a class="navbar__link" href="">ABOUT</a></li>
+                    <li type="none" class="navbar__link" onclick="productFilter(`ALL PRODUCT`)">ALL PRODUCT</li>
+                    <li type="none" class="navbar__link" onclick="productFilter(`BESTSELLER`)">BESTSELLER</li>
+                    <li type="none" class="navbar__link" onclick="productFilter(`TONER`)">TONER</li>
+                    <li type="none" class="navbar__link" onclick="productFilter(`MOISTURIZER`)">MOISTURIZER</li>
+                    <li type="none" class="navbar__link" onclick="productFilter(`SERUM`)">SERUM</li>
+                    <li type="none" class="navbar__link" onclick="productFilter(`MASK`)">MASK</li>
+                    <li type="none" class="navbar__link" onclick="productFilter(`EYES + LIP CARE`)">EYES + LIP CARE</li>
+                    <li type="none" class="navbar__link" onclick="productFilter(`SET KIT`)">SET KIT</li>
                 </ul>
-            </nav> -->
+            </nav>
             <nav class="iconBox">
                 <div class="iconBox__userDetail">
                     <img id="userDetailImg" class="iconBox__userDetail__avatar" id="" src="" alt="">
@@ -68,29 +69,6 @@
                 <div class="productList__sumaryBanner__buttonBox">
                     <div class="sumaryBanner__selector">
                         <div class="sumaryBanner__selector__dropDownBox">
-                            <div class="dropDownBox__dropDownSelector" >FILTER </div>
-                            <span class="material-symbols-outlined">
-                                expand_more
-                            </span>
-                            <div class="dropDownBox__dropDownItem">
-                                <div class="dropDownBox__dropDownItemList">
-                                    <div class="dropDownIcon">
-                                        <input type="checkbox" name="catalogue" checked > ALL <br>
-                                        <input type="checkbox" name="catalogue"> BESTSELLER <br>
-                                        <input type="checkbox" name="catalogue"> MOISTURIZER <br>
-                                        <input type="checkbox" name="catalogue"> TONER <br>
-                                        <input type="checkbox" name="catalogue"> SERUM <br>
-                                        <input type="checkbox" name="catalogue"> SUNSCREEN <br>
-                                        <input type="checkbox" name="catalogue"> MASK <br>
-                                        <input type="checkbox" name="catalogue"> EYES + LIP CARE <br>
-                                        <input type="checkbox" name="catalogue"> SET KIT <br>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sumaryBanner__selector">
-                        <div class="sumaryBanner__selector__dropDownBox">
                             <div class="dropDownBox__dropDownSelector">SORT </div>
                             <span class="material-symbols-outlined">
                                 expand_more
@@ -122,9 +100,57 @@
             </div>
         </section>
     </div>
+    <footer class="footer">
+        <div class="footer__brandDetail">
+            <div class="footer__brandDetail__container1">
+                <p class="footer__brandDetail__title">JOIN OUR COMMUNITY</p>
+                <p class="footer__brandDetail__signUpDiscount">Sign up and get 15% off your first order!</p>
+                <input class="footer__brandDetail__input" type="email" placeholder="Email Address">
+                <input class="footer__brandDetail__input" type="number" placeholder="Phone Number"> 
+                <p class="footer__brandDetail__text">By subscribing to Ole Henriksen, you consent to receive a varying number of marketing messages via email. Consent is not a condition of any purchase. <br>
+                    View <a href="">Terms of Use</a> & <a href="">Privacy Policy</a>. <br>
+                    California residents: Please also see our <br>
+                    <a href="">Financial Incentive Terms</a>.</p>
+            </div>
+            <div class="footer__brandDetail__container2">
+                <div class="footer__content">
+                    <h3 class="footer__content__title">CONTACT US</h3>
+                    <p>Call us from 9am to 9pm ET Monday-Friday and 9am to 6pm ET Saturday: <br>1-844-OLE-GLOW (653-4569)</p>
+                    <p>Email us at anytime: <br>customerservice@olehenriksen.com</p>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__content__title">ABOUT</h3>
+                    <a href="">About Ole Henriksen</a>
+                    <a href="">Ole Glow</a>
+                    <a href="">Find A Store</a>
+                    <a href="">Affiliates</a>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__content__title">CUSTOMER SERVICE</h3>
+                    <a href="">Contact Us</a>
+                    <a href="">Account</a>
+                    <a href="">Order Status</a>
+                    <a href="">Shipping Information</a>
+                    <a href="">Returns</a>
+                    <a href="">FAQs</a>
+                    <a href="">Klarna & Afterpay</a>
+                    <a href="">Gift Cards</a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="footer_socialMedia">
+            <div class="footer_socialMedia__links">
+                <a href="">Privacy</a>
+                <a href="">Terms of Use</a>
+                <a href="">CA Supply Chain Act</a>
+                <a href="">Accessibility</a>
+                <a href="">©2021 Kendo Holdings Inc</a>
+            </div>
+            <div>
 
-    <footer>
-
+            </div>
+        </div>
     </footer>
 
     <!-- <script src="./products.js"></script> -->
