@@ -25,12 +25,12 @@ let userCarts = usersList.find(user => user.id == localStorage.getItem("CheckLog
 function renderCartProduct(cartProducts) {
     if (localStorage.getItem("CheckLogin")) {
         let userCartInner = "";
-        let sumaryInner="";
+        let sumaryInner = "";
         for (let i = 0; i < cartProducts.length; i++) {
             userCartInner +=
                 `
             <tr>
-                <td>${i+1}</td>
+                <td>${i + 1}</td>
                 <td class="tbody__imgContainer"><img class="tbody__productImg" src=".${cartProducts[i].productImg}" alt=""></td>
                 <td >${cartProducts[i].productName}</td>
                 <td >${cartProducts[i].size} oz</td>
@@ -40,77 +40,77 @@ function renderCartProduct(cartProducts) {
                 ${cartProducts[i].quantity}
                 <button onclick="adjustQuantity(${cartProducts[i].id},'+')" class="tbody__adjustBtn">+</button>
                 </td>
-                <td >${cartProducts[i].quantity*cartProducts[i].price}</td>
+                <td >${cartProducts[i].quantity * cartProducts[i].price}</td>
                 <td><button onclick="deleteItem(${cartProducts[i].id})" class="tbody__deleteBtn">Delete</button></td>
             </tr>
             `
         }
         //show total quantity of products in user cart
-        let userCart = usersList.find(user=>user.id == localStorage.getItem("CheckLogin")).cart;
-        document.getElementById("cartBox__totalProducts").innerText = userCart.reduce((result,nextItem)=>{return result + nextItem.quantity},0)
+        let userCart = usersList.find(user => user.id == localStorage.getItem("CheckLogin")).cart;
+        document.getElementById("cartBox__totalProducts").innerText = userCart.reduce((result, nextItem) => { return result + nextItem.quantity }, 0)
         //show sumary of tfoot
         sumaryInner =
-        `
-            <th colspan="4">Total Item:  ${cartProducts.reduce((result,nextItem)=>{
+            `
+            <th colspan="4">Total Item:  ${cartProducts.reduce((result, nextItem) => {
                 return result + nextItem.quantity
-            },0)}</th>
-            <th colspan="4">Total Cost:  ${cartProducts.reduce((result,nextItem)=>{
-                return result + (nextItem.quantity*nextItem.price)
-            },0)}</th>
+            }, 0)}</th>
+            <th colspan="4">Total Cost:  ${cartProducts.reduce((result, nextItem) => {
+                return result + (nextItem.quantity * nextItem.price)
+            }, 0)}</th>
         `
-        document.getElementById("renderProductTable__tfoot").innerHTML=sumaryInner;
-        document.getElementById("renderProductTable__tbody").innerHTML=userCartInner;
+        document.getElementById("renderProductTable__tfoot").innerHTML = sumaryInner;
+        document.getElementById("renderProductTable__tbody").innerHTML = userCartInner;
     }
 }
 renderCartProduct(userCarts)
 
 
 /* delete product in user cart */
-function deleteItem(productId){
+function deleteItem(productId) {
     if (confirm("Do you submit to remove this product?")) {
-        userCarts=userCarts.filter(item => item.id != productId);
-        usersList=usersList.map(user =>{
-            if(user.id == localStorage.getItem("CheckLogin")){
+        userCarts = userCarts.filter(item => item.id != productId);
+        usersList = usersList.map(user => {
+            if (user.id == localStorage.getItem("CheckLogin")) {
                 user.cart = userCarts
                 return user
             }
             return user
         })
         renderCartProduct(userCarts)
-        localStorage.setItem("usersList",JSON.stringify(usersList));
-    }else{
+        localStorage.setItem("usersList", JSON.stringify(usersList));
+    } else {
         return;
     }
 }
 
 /* update product in cart */
-function adjustQuantity(productId,type) {
+function adjustQuantity(productId, type) {
     let user = usersList.find(user => user.id == localStorage.getItem("CheckLogin"))
     let product = user.cart.find(product => product.id == productId)
     if (type == '-') {
-        if (product.quantity>1) {
-            product.quantity-=1;
-        }else{
+        if (product.quantity > 1) {
+            product.quantity -= 1;
+        } else {
             deleteItem(productId)
         }
-    }else{
-        product.quantity+=1;
+    } else {
+        product.quantity += 1;
     }
-    localStorage.setItem("usersList",JSON.stringify(usersList))
+    localStorage.setItem("usersList", JSON.stringify(usersList))
     renderCartProduct(userCarts)
 }
 
 //log out and clear CheckLogin storage
 function logout() {
     localStorage.removeItem("CheckLogin")
-    window.location.href="../index.html"
+    window.location.href = "../index.html"
 }
 
 //remove accent and uppercase of search input
 function removeAccentLowerCase(str) {
     return str.normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
 }
 
 //search product by name
@@ -127,16 +127,16 @@ function search_input_display() {
 }
 
 //check out user cart
-function checkOut(){
+function checkOut() {
     let checkOutOrders = JSON.parse(localStorage.getItem("checkOutOrders")) || [];
     let user = usersList.find(user => user.id == localStorage.getItem("CheckLogin"))
-    let checkOutCart = {...user}
+    let checkOutCart = { ...user }
     if (checkOutCart.cart.length) {
-        checkOutCart.orderId = new Date()*Math.random()
+        checkOutCart.orderId = new Date() * Math.random()
         checkOutOrders.push(checkOutCart)
-        localStorage.setItem("checkOutOrders",JSON.stringify(checkOutOrders))
+        localStorage.setItem("checkOutOrders", JSON.stringify(checkOutOrders))
         user.cart = [];
-        localStorage.setItem("usersList",JSON.stringify(usersList));
+        localStorage.setItem("usersList", JSON.stringify(usersList));
         renderCartProduct(user.cart)
     }
 }

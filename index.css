@@ -24,7 +24,7 @@ body {
 }
 
 /* header */
-.header{
+.header {
     width: 100%;
     height: 83px;
     position: fixed;
@@ -36,7 +36,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color:rgba(255, 178, 110, 0.6);
+    background-color: rgba(255, 178, 110, 0.6);
     height: 100%;
     padding: 0px 45px;
     position: sticky;
@@ -58,7 +58,8 @@ body {
     font-weight: 700;
     cursor: pointer;
 }
-.navbar__link__active{
+
+.navbar__link__active {
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: underline;
@@ -87,16 +88,17 @@ body {
     column-gap: 19px;
 }
 
-.iconBox__searchBox{
+.iconBox__searchBox {
     display: flex;
     align-items: center;
 }
-.search__btn{
+
+.search__btn {
     border: none;
     background-color: transparent;
 }
 
-.search_input{
+.search_input {
     width: 0px;
     overflow: hidden;
     outline-style: none;
@@ -106,13 +108,16 @@ body {
     background-color: transparent;
     transition: width 1s ease;
 }
-.search_input::placeholder{
+
+.search_input::placeholder {
     padding: 0px 10px;
 }
-.expanded{
+
+.expanded {
     padding: 0px 10px;
-    width:150px
+    width: 150px
 }
+
 .iconBox__icon {
     width: 17px;
     height: 17px;
@@ -120,10 +125,12 @@ body {
     font-weight: 400;
     color: black;
 }
-.iconBox__cartBox{
+
+.iconBox__cartBox {
     position: relative;
 }
-.cartBox__totalProducts{
+
+.cartBox__totalProducts {
     display: inline-block;
     background-color: red;
     color: #FFFFFF;
@@ -136,29 +143,33 @@ body {
 }
 
 /* body */
-.body{
+.body {
     position: relative;
     top: 108px;
 }
+
 .productList {
     display: flex;
     flex-direction: column;
     row-gap: 1px;
 }
-.productList__banner{
+
+.productList__banner {
     width: 100%;
     height: 250px;
     position: relative;
     overflow: hidden;
 }
-.productList__banner>img{
+
+.productList__banner>img {
     width: 100%;
     bottom: 5px;
     position: absolute;
 }
+
 .productList__title {
     color: #FFFFFF;
-    text-shadow:5px 6px 5px #2b2b2b ;
+    text-shadow: 5px 6px 5px #2b2b2b;
     width: 100%;
     height: 30%;
     font-size: 45px;
@@ -166,7 +177,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: transparent;
     position: absolute;
-    background-color: rgb(144, 144, 144,0.4);
+    background-color: rgb(144, 144, 144, 0.4);
     top: 40%;
     text-align: center;
     padding: 10px 0px;
@@ -186,9 +197,11 @@ body {
     display: flex;
     align-items: center;
 }
-.sumaryBanner__selector__dropDownBox{
+
+.sumaryBanner__selector__dropDownBox {
     display: flex;
 }
+
 .sumaryBanner__selector {
     display: flex;
     position: relative;
@@ -200,23 +213,27 @@ body {
     font-size: 17px;
     cursor: pointer;
 }
-.sumaryBanner__selector__dropDownBox:hover>.dropDownBox__dropDownItem{
+
+.sumaryBanner__selector__dropDownBox:hover>.dropDownBox__dropDownItem {
     display: block;
 }
-.dropDownBox__dropDownItem{
+
+.dropDownBox__dropDownItem {
     position: absolute;
-    top:100%;
+    top: 100%;
     left: 0;
     right: 0;
     display: none;
 }
-.dropDownBox__dropDownItemList{
+
+.dropDownBox__dropDownItemList {
     width: 200px;
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;
 }
-.dropDownIcon{
+
+.dropDownIcon {
     padding: 10px;
     list-style-type: none;
 }
@@ -406,66 +423,78 @@ body {
 
 
 /*  cart CSS */
-.renderProductTable{
+.renderProductTable {
     min-height: 250px;
     width: 100%;
     border-collapse: collapse;
 }
-.renderProductTable__thead{
+
+.renderProductTable__thead {
     height: 30px;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #FBCDA4;
 }
-.renderProductTable__tbody{
+
+.renderProductTable__tbody {
     text-align: center;
     font-size: 17px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.tbody__imgContainer{
+
+.tbody__imgContainer {
     width: 13%;
 }
-.tbody__productImg{
+
+.tbody__productImg {
     width: 100%;
     height: 100%;
 }
-.tbody__deleteBtn{
+
+.tbody__deleteBtn {
     width: 80px;
     height: 40px;
     border: 1px solid #c4c4c4;
     border-radius: 5px;
 }
-.tbody__deleteBtn:hover{
+
+.tbody__deleteBtn:hover {
     color: #FFFFFF;
-    background-color:rgb(252, 110, 110) ;
+    background-color: rgb(252, 110, 110);
     transition: all 0.5s;
 }
-.tbody__adjustBtn{
+
+.tbody__adjustBtn {
     border: none;
     font-size: 22px;
     padding: 0px 10px;
 }
-.tbody__adjustBtn:hover{
+
+.tbody__adjustBtn:hover {
     color: #F28F33;
     transition: all 0.5s;
 }
-.tbody__adjustBtn:active{
-    color: rgb(252, 110, 110) ;
+
+.tbody__adjustBtn:active {
+    color: rgb(252, 110, 110);
     transition: all 0.5s;
 }
-.renderProductTable__tfoot{
+
+.renderProductTable__tfoot {
     background-color: rgb(252, 110, 110);
     height: 30px;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.productList__buttonBox{
+
+.productList__buttonBox {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     height: 70px;
 }
-.productList__buttonBox__btn{
+
+.productList__buttonBox__btn {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -478,34 +507,39 @@ body {
     cursor: pointer;
     transition: all 1s;
 }
-.productList__buttonBox__btn:hover{
+
+.productList__buttonBox__btn:hover {
     color: #FFFFFF;
     background-color: #2b2b2b;
     transform: scale(1.05);
-    
+
 }
-.productList__buttonBox__btn:active{
+
+.productList__buttonBox__btn:active {
     color: rgb(252, 110, 110);
     transform: scale(1);
 }
+
 /* footer */
-.footer{
+.footer {
     position: relative;
     top: 108px;
     display: flex;
-    flex-direction:column ;
+    flex-direction: column;
     background-color: #F6F6F6;
     row-gap: 3px;
     height: 500px;
     width: 1521.7px;
 }
-.footer__brandDetail{
+
+.footer__brandDetail {
     height: 415px;
     display: flex;
     column-gap: 3px;
     background-color: #F6F6F6;
 }
-.footer__brandDetail__container1{
+
+.footer__brandDetail__container1 {
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;
@@ -514,32 +548,37 @@ body {
     min-height: 400px;
     width: 40%;
 }
-.footer__brandDetail__title{
+
+.footer__brandDetail__title {
     font-size: 15px;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.footer__brandDetail__signUpDiscount{
+
+.footer__brandDetail__signUpDiscount {
     font-size: 12px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.footer__brandDetail__input{
+
+.footer__brandDetail__input {
     width: 400px;
     height: 30px;
     border: none;
     background-color: #F6F6F6;
-    padding:0px 15px;
+    padding: 0px 15px;
 }
-.footer__brandDetail__text{
+
+.footer__brandDetail__text {
     font-size: 13px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #3e3e3e;
 }
-.footer__brandDetail__text a{
+
+.footer__brandDetail__text a {
     color: #3e3e3e;
 }
 
-.footer__brandDetail__container2{
+.footer__brandDetail__container2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     background-color: #FFFFFF;
@@ -547,24 +586,28 @@ body {
     min-height: 400px;
     width: 60%;
 }
-.footer__content{
+
+.footer__content {
     display: flex;
     flex-direction: column;
     padding: 65px;
     row-gap: 10px;
 }
-.footer__content__title{
+
+.footer__content__title {
     font-size: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 10;
 }
-.footer__content a{
+
+.footer__content a {
     color: #3e3e3e;
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
 }
-.footer_socialMedia{
+
+.footer_socialMedia {
     height: 85px;
     background-color: #ffffff;
     display: flex;
@@ -572,13 +615,15 @@ body {
     align-items: center;
     padding: 0px 65px;
 }
-.footer_socialMedia a{
+
+.footer_socialMedia a {
     font-size: 13px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #3e3e3e;
     text-decoration: none;
 }
-.footer_socialMedia__links{
+
+.footer_socialMedia__links {
     display: flex;
     column-gap: 20px;
 }

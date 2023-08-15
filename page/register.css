@@ -1,9 +1,10 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background-color: #F5F5F5;
     width: 100%;
     height: 100vh;
@@ -12,7 +13,8 @@ body{
     row-gap: 1px;
     column-gap: 1px;
 }
-.freeship__text{
+
+.freeship__text {
     font-size: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
@@ -20,8 +22,9 @@ body{
     padding: 5px 0px;
     height: 26px;
 }
+
 /* header */
-.header__container{
+.header__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,76 +33,90 @@ body{
     padding: 0px 45px;
     position: sticky;
 }
-.brandLogo{
+
+.brandLogo {
     height: 19px;
 }
-.navbar{
+
+.navbar {
     display: flex;
     column-gap: 35px;
 }
-.navbar__link{
+
+.navbar__link {
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: black;
     font-size: 15px;
 }
-.iconBox{
+
+.iconBox {
     display: flex;
     column-gap: 19px;
 }
-.iconBox__icon{
+
+.iconBox__icon {
     width: 17px;
     height: 17px;
     font-size: 22px;
     font-weight: 400;
     color: black;
 }
+
 /* body */
-.body{
+.body {
     display: flex;
     justify-content: center;
     width: 100%;
 }
-.Form{
+
+.Form {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 50%;
     row-gap: 5px;
 }
-.Form__pageTitle{
+
+.Form__pageTitle {
     font-size: 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
-.Form__pageInput{
+
+.Form__pageInput {
     display: flex;
     justify-content: center;
     width: 100%;
 }
-.inputInfo{
+
+.inputInfo {
     padding: 20px;
     width: 60%;
     height: 65px;
     border: 2px solid black;
 }
-.Form__errorArea{
+
+.Form__errorArea {
     color: red;
     height: 25px;
     font-size: 12px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.Form__Button{
+
+.Form__Button {
     background-color: #3D3D3D;
     color: #ffffff;
     height: 40px;
     width: 60%;
 }
-.Form__createButton:hover{
-    background-color:#FFFFFF;
+
+.Form__createButton:hover {
+    background-color: #FFFFFF;
     color: #3D3D3D;
-    transition: all 0.15s ;
+    transition: all 0.15s;
 }
-.Form__errorArea__errorText{
+
+.Form__errorArea__errorText {
     display: none;
 }
