@@ -41,7 +41,7 @@ function validateInfo(user) {
         document.getElementById("emailEmpty").style.display = "block";
         boolean = false
     } if (localStorage.getItem("usersList")) {
-        let usersList = JSON.parse(localStorage.getItem("usersList"));
+        let usersList = JSON.parse(localStorage.getItem("usersList")) || [];
         if (usersList.find(item => item.email == user.target.email.value)) {
             document.getElementById("emailError").style.display = "none";
             document.getElementById("emailExisted").style.display = "block";
@@ -104,7 +104,7 @@ function register(event) {
     /* verify check usersList is it have any user yet */
     /* just need to verify info then push and save */
     if (localStorage.getItem("usersList")) {
-        let usersList = JSON.parse(localStorage.getItem("usersList"));
+        let usersList = JSON.parse(localStorage.getItem("usersList")) || [];
         /* verify email is it existed */
         if (usersList.find(user => user.email == event.target.email.value)) {
             document.getElementById("emailExisted").style.display = "block"
@@ -120,6 +120,8 @@ function register(event) {
             password: event.target.password.value,
             avatar: event.target.avatar.value,
             cart: [],
+            role:"0",
+            status:"active"
         })
         localStorage.setItem("usersList", JSON.stringify(usersList))
     } else {
@@ -133,6 +135,8 @@ function register(event) {
             password: event.target.password.value,
             avatar: event.target.avatar.value,
             cart: [],
+            role:"0",
+            status:"active"
         }]))
     }
     /* Create success then transfer to another tab */

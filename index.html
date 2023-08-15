@@ -27,37 +27,41 @@
                     <li type="none" class="navbar__link" onclick="productFilter(`SET KIT`)">SET KIT</li>
                 </ul>
             </nav>
-            <nav class="iconBox">
-                <div class="iconBox__userDetail">
-                    <img id="userDetailImg" class="iconBox__userDetail__avatar" id="" src="" alt="">
-                    <span id="userDetailName" class="iconBox__userDetail__name"></span>
-                </div>
-                <a href="./index.html"><span class="material-symbols-outlined iconBox__icon">
-                        home
-                    </span></a>
-                <div class="iconBox__searchBox">
-                    <button class="search__btn"><span onclick="search_input_display()"
-                            class="material-symbols-outlined iconBox__icon">
-                            search
-                        </span></button>
-                    <input id="search_input" class="search_input" oninput="search()" type="text" placeholder="Search">
-                </div>
-                <a href="./page/login.html" id="login_icon"><span onclick=""
-                        class="material-symbols-outlined iconBox__icon">
-                        person
-                    </span></a>
-                <a href="" id="logout_icon" style="display: none;"><span onclick="logout()"
-                        class="material-symbols-outlined iconBox__icon">
-                        logout
-                    </span></a>
-                <div class="iconBox__cartBox">
-                    <a href="./page/cart.html"><span class="material-symbols-outlined iconBox__icon">
-                            shopping_bag
+            <div class="header__iconBoxContainer">
+                <a class="admin__login__link" href="./admin-page/admin-login.html">Admin Login this way!</a>
+                <nav class="iconBox">
+                    <div>
+                        <div class="iconBox__userDetail">
+                            <img id="userDetailImg" class="iconBox__userDetail__avatar" id="" src="" alt="">
+                            <span id="userDetailName" class="iconBox__userDetail__name"></span>
+                        </div>
+                    </div>
+                    <a href="./index.html"><span class="material-symbols-outlined iconBox__icon">
+                            home
                         </span></a>
-                    <span class="cartBox__totalProducts" id="cartBox__totalProducts"></span>
-                </div>
-            </nav>
-        </div>
+                    <div class="iconBox__searchBox">
+                        <button class="search__btn"><span onclick="search_input_display()"
+                                class="material-symbols-outlined iconBox__icon">
+                                search
+                            </span></button>
+                        <input id="search_input" class="search_input" oninput="search()" type="text" placeholder="Search">
+                    </div>
+                    <a href="./page/login.html" id="login_icon"><span onclick=""
+                            class="material-symbols-outlined iconBox__icon">
+                            person
+                        </span></a>
+                    <a href="" id="logout_icon" style="display: none;"><span onclick="logout()"
+                            class="material-symbols-outlined iconBox__icon">
+                            logout
+                        </span></a>
+                    <div class="iconBox__cartBox">
+                        <a href="./page/cart.html"><span class="material-symbols-outlined iconBox__icon">
+                                shopping_bag
+                            </span></a>
+                        <span class="cartBox__totalProducts" id="cartBox__totalProducts"></span>
+                    </div>
+                </nav>
+            </div> 
         </div>
     </header>
     <div class="body">

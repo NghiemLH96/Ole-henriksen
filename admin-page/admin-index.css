@@ -185,13 +185,17 @@ body {
     border-collapse: collapse;
 }
 
+.userManagerTable__thead{
+    height: 30px;
+    background-color:rgb(250, 186, 250); ;
+}
 .userManagerTable__tbody__avatar{
     width: 150px;
 }
 .userManagerTable__userAvatar{
     width: 150px;
 }
-.userManagerTable__buttonBox__button{
+.userManagerTable__buttonBox__button,.ProductManager__btn{
     width: 80px;
     height: 40px;
     margin: 0px 5px;
@@ -201,15 +205,32 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: pointer;
 }
-.blockBtn{
+.userManagerTable__buttonBox__button:hover,.ProductManager__btn:hover{
+    color: rgb(255, 5, 5);
+}
+.userManagerTable__tbody>tr:nth-child(even){
+    background-color: rgb(250, 246, 216);
+}
+.permissionAdjust{
+    background-color: rgb(119, 253, 166);
+}
+.blockBtn,.price__btn{
     background-color: rgb(119, 179, 253);
 }
-.unblockBtn{
+.unblockBtn,.status__btn{
     background-color: rgb(137, 253, 119);
 }
 .removeBtn{
     background-color: rgb(253, 119, 119);
 }
+.userManagerTable__tfoot{
+    height: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: rgb(250, 186, 250);
+}
+
+
 /* footer */
 .footer{
     position: relative;

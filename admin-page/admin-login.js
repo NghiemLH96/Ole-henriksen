@@ -1,5 +1,9 @@
-if(localStorage.getItem("AdminLogin")){
-    window.location.href="./admin-index.html"
+if (localStorage.getItem("CheckLogin")) {
+    let UsersList = JSON.parse(localStorage.getItem("usersList"));
+    let user = UsersList.find(item => item.id == localStorage.getItem("CheckLogin") )
+    if (user.role == "1") {
+        window.location.href="./admin-index.html"
+    }
 }
 
 let AdminList=JSON.parse(localStorage.getItem("usersList")).filter(admin => admin.role == "1")
@@ -27,8 +31,6 @@ function checkInfo(info){
     }
     if(AdminList){
         let admin=AdminList.find(item=> item.email == adminInfo.email)
-        console.log(admin.email);
-        console.log(admin.password);
         if (!admin) {
             document.getElementById("email_notExist").style.display="block";
             document.getElementById("email_formatError").style.display="none";

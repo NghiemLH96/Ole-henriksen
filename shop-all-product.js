@@ -114,7 +114,7 @@ renderProduct(productsList)
 //show total quantity of product in user cart
 function showTotalProductsIncart() {
     if (localStorage.getItem("CheckLogin")) {
-        let usersList = JSON.parse(localStorage.getItem("usersList"));
+        let usersList = JSON.parse(localStorage.getItem("usersList"))||[];
         let userCart = usersList.find(user => user.id == localStorage.getItem("CheckLogin")).cart;
         document.getElementById("cartBox__totalProducts").innerText = userCart.reduce((result, nextItem) => { return result + nextItem.quantity }, 0)
     };
@@ -153,9 +153,9 @@ function checkStatus(product) {
                     <p>Add To Bag</p>
                     <div class="priceContainer">
                         <div>
-                            <p id="price${product.id[i]}">${product.price[i]}</p>
+                            <p id="price${product.id[i]}">${product.price[i]} vnđ</p>
                         </div>
-                        <p class="display" id="price${product.id[i]}">${product.price[i]}</p>
+                        <p class="display" id="price${product.id[i]}">${product.price[i]} vnđ</p>
                     </div>
                 </div>
                 `
@@ -168,29 +168,15 @@ function checkStatus(product) {
                 <p>Add To Bag</p>
                 <div class="priceContainer">
                     <div>
-                        <p id="price${product.id}">${product.price}</p>
+                        <p id="price${product.id}">${product.price} vnđ</p>
                     </div>
-                    <p class="display" id="price${product.id}">${product.price}</p>
+                    <p class="display" id="price${product.id}">${product.price} vnđ</p>
                 </div>
             </div>
             `
         }
         return addToBagButtonInner
-    } if (productStatus == "Full Detail") {
-        addToBagButtonInner = /* thiếu link */
-            `
-        <a id="addToBagButton_${product.id}" class="addToBag link" href=""> 
-            <p>See Full Detail</p>
-            <div class="priceContainer">
-                <div>
-                    <p id="price${product.id}">${product.price}</p>
-                </div>
-                <p class="display" id="price${product.id}">${product.price}</p>
-            </div>
-        </a>
-        `
-        return addToBagButtonInner
-    } if (productStatus == "Sold Out") {
+    }if (productStatus == "Sold Out") {
         addToBagButtonInner =
             `
             <div id="addToBagButton_${product.id}" class="Notify-Me" onclick="soldOutAlert()">
@@ -212,7 +198,11 @@ function checkStatus(product) {
 
 //alert for which product was sold out
 function soldOutAlert() {
-    alert("this product was sold out!")
+    alert("This product was sold out!")
+}
+
+function notifyMe(){
+    alert("This product wil coming soon , kindly follow our site!")
 }
 
 //function click size button detail will change by product size
@@ -250,11 +240,11 @@ for (const x in productsList) {
 
 //check user was login yet
 function checkLogin() {
-    let usersList = JSON.parse(localStorage.getItem("usersList"));
+    let usersList = JSON.parse(localStorage.getItem("usersList")) || [];
     let nameDisplay = document.getElementById("userDetailName");
     let avatarDisplay = document.getElementById("userDetailImg");
     if (localStorage.getItem("CheckLogin")) {
-        let CheckLogin = localStorage.getItem("CheckLogin");
+        let CheckLogin = localStorage.getItem("CheckLogin") || [];
         document.getElementById("login_icon").style.display = "none";
         document.getElementById("logout_icon").style.display = "block";
         nameDisplay.style.display = "block";
@@ -279,10 +269,10 @@ function logout() {
 
 //add product to user cart then render again
 function addToBag(id) {
-    let usersList = JSON.parse(localStorage.getItem("usersList"));
+    let usersList = JSON.parse(localStorage.getItem("usersList")) || [];
     if (localStorage.getItem("CheckLogin")) {
         //find user cart
-        let checkLogin = localStorage.getItem("CheckLogin");
+        let checkLogin = localStorage.getItem("CheckLogin") || [];
         let userCart = usersList.find(user => user.id == checkLogin).cart;
         if (checkLogin == null) {
             alert("Should login before add product to cart!")
@@ -360,7 +350,7 @@ function addToBag(id) {
 //item Sort by Price or rating
 let PriceSortFlag = false;
 function sortByPrice() {
-    let productList = JSON.parse(localStorage.getItem("productsList"));
+    let productList = JSON.parse(localStorage.getItem("productsList")) || [];
     if (PriceSortFlag) {
         let productSort = productList.sort((a, b) => {
             return a.price - b.price
@@ -375,7 +365,7 @@ function sortByPrice() {
 }
 
 function sortByRate() {
-    let productList = JSON.parse(localStorage.getItem("productsList"));
+    let productList = JSON.parse(localStorage.getItem("productsList"))|| [];
     let productSort = productList.sort((a, b) => {
         return b.rating - a.rating
     })
@@ -391,7 +381,7 @@ function removeAccentLowerCase(str) {
 
 //search product by name 
 function search() {
-    let allProduct = [...JSON.parse(localStorage.getItem("productsList"))]
+    let allProduct = [...JSON.parse(localStorage.getItem("productsList"))] || []
     let searchInput = document.getElementById("search_input").value;
     allProduct = allProduct.filter(item => removeAccentLowerCase(item.productName).includes(removeAccentLowerCase(searchInput)))
     renderProduct(allProduct)
@@ -416,7 +406,7 @@ function activeCatalogue(active) {
 }
 
 function productFilter(productCatalogue) {
-    let productList = JSON.parse(localStorage.getItem("productsList"))
+    let productList = JSON.parse(localStorage.getItem("productsList")) || []
     if (productCatalogue == "ALL PRODUCT") {
         document.getElementsByClassName("productList__title")[0].innerText = "SHOP ALL PRODUCT"
         displayPrductList = productList

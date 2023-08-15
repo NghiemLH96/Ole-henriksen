@@ -31,6 +31,11 @@ body {
     top: 0;
     z-index: 1;
 }
+.header__iconBoxContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .header__container {
     display: flex;
@@ -124,6 +129,9 @@ body {
     font-size: 22px;
     font-weight: 400;
     color: black;
+}
+.admin__login__link{
+    font-size: 12px;
 }
 
 .iconBox__cartBox {
@@ -440,6 +448,10 @@ body {
     text-align: center;
     font-size: 17px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.renderProductTable__tbody>tr:nth-child(even){
+    background-color:rgb(250, 246, 216); ;
 }
 
 .tbody__imgContainer {

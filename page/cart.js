@@ -1,4 +1,4 @@
-let usersList = JSON.parse(localStorage.getItem("usersList"))
+let usersList = JSON.parse(localStorage.getItem("usersList")) || []
 
 /* check user already login yet */
 function checkLogin() {
@@ -34,13 +34,13 @@ function renderCartProduct(cartProducts) {
                 <td class="tbody__imgContainer"><img class="tbody__productImg" src=".${cartProducts[i].productImg}" alt=""></td>
                 <td >${cartProducts[i].productName}</td>
                 <td >${cartProducts[i].size} oz</td>
-                <td >${cartProducts[i].price} /pc</td>
+                <td >${cartProducts[i].price} vnđ/pc</td>
                 <td >
                 <button onclick="adjustQuantity(${cartProducts[i].id},'-')" class="tbody__adjustBtn">-</button>
                 ${cartProducts[i].quantity}
                 <button onclick="adjustQuantity(${cartProducts[i].id},'+')" class="tbody__adjustBtn">+</button>
                 </td>
-                <td >${cartProducts[i].quantity * cartProducts[i].price}</td>
+                <td >${cartProducts[i].quantity * cartProducts[i].price} vnđ</td>
                 <td><button onclick="deleteItem(${cartProducts[i].id})" class="tbody__deleteBtn">Delete</button></td>
             </tr>
             `
@@ -56,7 +56,7 @@ function renderCartProduct(cartProducts) {
             }, 0)}</th>
             <th colspan="4">Total Cost:  ${cartProducts.reduce((result, nextItem) => {
                 return result + (nextItem.quantity * nextItem.price)
-            }, 0)}</th>
+            }, 0)} vnđ</th>
         `
         document.getElementById("renderProductTable__tfoot").innerHTML = sumaryInner;
         document.getElementById("renderProductTable__tbody").innerHTML = userCartInner;

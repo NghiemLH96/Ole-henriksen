@@ -1,8 +1,9 @@
+
 if (localStorage.getItem("CheckLogin")) {
     window.location.href = "../index.html"
 }
 
-let usersList = JSON.parse(localStorage.getItem("usersList"))
+let usersList = JSON.parse(localStorage.getItem("usersList")) || []
 /* validate email */
 let validate = {
     isEmail: function (emailString) {
@@ -39,10 +40,14 @@ function checkInfo(info) {
                 document.getElementById("password_formatError").style.display = "block";
                 document.getElementById("password_incorrect").style.display = "none"
             } else if (user.password == userInfo.password) {
-                localStorage.setItem("CheckLogin", user.id)
-                alert("Sign in successed")
-                window.location.href = "/"
-                return
+                if (user.status == `block`) {
+                    alert("this account was blocked , please administrator for more detail !")
+                }else{
+                    localStorage.setItem("CheckLogin", user.id)
+                    alert("Sign in successed")
+                    window.location.href = "../index.html"
+                    return
+                }
             } else {
                 document.getElementById("password_incorrect").style.display = "block"
                 document.getElementById("password_formatError").style.display = "none";
