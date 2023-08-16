@@ -80,6 +80,47 @@ function renderProductManager() {
     let tableInner="";
     tableInner +=
     `
+    <div class="addProductBox">
+        <button class="addNewProductBtn" onclick="addNewProduct__display()"> Add new product</button>
+        <div id="addNewProduct" class="addNewProduct">
+            <label for="productImg">Product Image</label>
+            <input id="productImg" type="text" placeholder="Image link">
+            <label for="productName">Product Name</label>
+            <input id="productName" type="text" placeholder="Product name">
+            <label for="introduceText">Introduce Text</label>
+            <input id="introduceText" type="text" placeholder="Input text">
+            <label for="catalogue">Catalogue</label>
+            <select name="catalogue" id="catalogue">
+                <option value="SERUM">SERUM</option>
+                <option value="MOISTURIZER">MOISTURIZER</option>
+                <option value="EYES + LIP CARE">EYES + LIP CARE</option>
+                <option value="TONER">TONER</option>
+                <option value="MASK">MASK</option>
+                <option value="MASK">SET KIT</option>
+            </select>
+            <label for="status">Status</label>
+            <select name="status" id="status">
+                <option value="Notify Me">Notify Me</option>
+                <option value="Available">Available</option>
+                <option value="Sold Out">Sold Out</option>
+            </select>
+            <label for="rating">Rating</label>
+            <select name="rating" id="rating">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+            </select>
+            <label for="size">Size</label>
+            <input id="size" type="number" placeholder="Size input">
+            <label for="originalPrice">Original Price</label>
+            <input id="originalPrice" type="number" placeholder="Original Price input">
+            <label for="price">Price</label>
+            <input id="price" type="number" placeholder="Price input">
+            <button onclick="addNewProduct()"> Create</button>
+        </div>
+    </div>
     <table class="userManagerTable" border="1px solid black">
         <thead id="userManagerTable__thead" class="userManagerTable__thead">
             <th>#</th>
@@ -104,9 +145,9 @@ function renderProductManager() {
                 productInner+=
                 `
                 <tr>
-                    <td></td>
+                    <td>${Number(i)+1}.${Number(j)+1}</td>
                     <td>${productsList[i].id[j]}</td>
-                    <td><img class="userManagerTable__userAvatar" src=".${productsList[i].productImg[j]}" alt=""></td>
+                    <td class="productManager__imgBox"><img class="userManagerTable__userAvatar" src=".${productsList[i].productImg[j]}" alt=""></td>
                     <td>${productsList[i].productName} ${productsList[i].size[j]+"oz"}</td>
                     <td>${productsList[i].status}</td>
                     <td>${productsList[i].price[j]} vnđ</td>
@@ -122,7 +163,7 @@ function renderProductManager() {
             productInner+=
             `
             <tr>
-                <td></td>
+                <td>${Number(i)+1}</td>
                 <td>${productsList[i].id}</td>
                 <td><img class="userManagerTable__userAvatar" src=".${productsList[i].productImg}" alt=""></td>
                 <td>${productsList[i].productName}</td>
@@ -158,12 +199,15 @@ function changeWorkingPage(target){
     
     if (target == 'ADMIN INFO') {
         document.getElementsByClassName("productList__title")[0].innerText='ADMINISTRATOR'
+        document.getElementById("head__banner").src="../Asset/BANNER/admin banner.jpg";
         renderAdminInfo()
     }if(target == 'USERS MANAGER'){
         document.getElementsByClassName("productList__title")[0].innerText='USERS MANAGER'
+        document.getElementById("head__banner").src="../Asset/BANNER/users banner.jpg";
         renderUserManager()
     }if(target == 'PRODUCT MANAGER'){
         document.getElementsByClassName("productList__title")[0].innerText='PRODUCT MANAGER'
+        document.getElementById("head__banner").src="../Asset/BANNER/product banner.jpg";
         renderProductManager()
     }
     for (const i in targetList) {
@@ -288,4 +332,27 @@ function removeProduct(productId) {
             renderProductManager();
         }
     }
+}
+
+function addNewProduct__display(){
+    document.getElementById("addNewProduct").classList.toggle("addNewProduct__display");
+}
+function addNewProduct(){
+    let newProduct = {
+        catalogue:document.getElementById("catalogue").value,
+        id:[Math.ceil(Math.random() * 9999999999 + new Date().getMilliseconds())],
+        introduceText:document.getElementById("introduceText").value,
+        originalPrice:[document.getElementById("originalPrice").value],
+        price:[document.getElementById("price").value],
+        productImg:[document.getElementById("productImg").value],
+        productName:document.getElementById("productName").value,
+        quantity:1,
+        rating:document.getElementById("rating").value,
+        size:[document.getElementById("size").value],
+        status:document.getElementById("status").value
+    }
+    let productsList=JSON.parse(localStorage.getItem("productsList"));
+    productsList.push(newProduct);
+    localStorage.setItem("productsList",JSON.stringify(productsList));
+    renderProductManager();
 }
