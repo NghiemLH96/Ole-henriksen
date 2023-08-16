@@ -43,7 +43,7 @@ function activePage(active) {
         document.getElementById("producList__pagination__next-btn").style.visibility = "visible"
     }
     window.scrollTo({
-        top: 0,
+        top: 400,
         behavior: `smooth`
     })
 }

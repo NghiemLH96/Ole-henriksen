@@ -41,6 +41,7 @@ function renderUserManager(){
             <th>#</th>
             <th>ID</th>
             <th>Avatar</th>
+            <th>role</th>
             <th>Full Name</th>
             <th>Email Address</th>
             <th>Action</th>
@@ -60,6 +61,7 @@ function renderUserManager(){
             <td>${Number(i)+1}</td>
             <td>${UsersList[i].id}</td>
             <td class="userManagerTable__tbody__avatar"><img class="userManagerTable__userAvatar" src="${UsersList[i].avatar}" alt=""></td>
+            <td>${UsersList[i].role}</td>
             <td>${UsersList[i].fistName} ${UsersList[i].lastName}</td>
             <td>${UsersList[i].email}</td>
             <td>
@@ -130,14 +132,15 @@ function renderProductManager() {
             <th>ID</th>
             <th>Product Image</th>
             <th>Product Name</th>
-            <th>Status</th>
-            <th>Price</th>
-            <th>Action</th>
+            <th style="width:200px">Catalogue</th>
+            <th style="width:200px">Status</th>
+            <th style="width:100px">Price</th>
+            <th style="width:300px">Action</th>
         </thead>
         <tbody id="userManagerTable__tbody" class="userManagerTable__tbody"></tbody>
         <tfoot id="userManagerTable__tfoot" class="userManagerTable__tfoot">
             <td colspan="4">Total user</td>
-            <td colspan="3">${productsList.length}</td>
+            <td colspan="4">${productsList.length}</td>
         </tfoot>
     </table>
     `
@@ -152,6 +155,7 @@ function renderProductManager() {
                     <td>${productsList[i].id[j]}</td>
                     <td class="productManager__imgBox"><img class="userManagerTable__userAvatar" src=".${productsList[i].productImg[j]}" alt=""></td>
                     <td>${productsList[i].productName} ${productsList[i].size[j]+"oz"}</td>
+                    <td>${productsList[i].catalogue}</td>
                     <td>${productsList[i].status}</td>
                     <td>${productsList[i].price[j]} vnđ</td>
                     <td>
@@ -170,6 +174,7 @@ function renderProductManager() {
                 <td>${productsList[i].id}</td>
                 <td><img class="userManagerTable__userAvatar" src=".${productsList[i].productImg}" alt=""></td>
                 <td>${productsList[i].productName}</td>
+                <td>${productsList[i].catalogue}</td>
                 <td>${productsList[i].status}</td>
                 <td>${productsList[i].price} vnđ</td>
                 <td>
@@ -268,9 +273,10 @@ function permissionAdjust(userId){
 }
 
 function priceAdjust(productId){
-    let price = prompt("Kindly input price!");
+    let price =Number(prompt("Kindly input price!"));
     if (price) {
-        let productList = JSON.parse(localStorage.getItem("productsList"));
+        if(typeof price =='number'){
+            let productList = JSON.parse(localStorage.getItem("productsList"));
         for (const i in productList) {
             if (productList[i].id.length>1) {
                 for (const j in productList[i].id) {
@@ -289,6 +295,9 @@ function priceAdjust(productId){
                     return
                 }
             }
+        }
+        }else{
+            alert("Input price should be number!")
         }
     }else{
         alert("Price you input is not valid!")
