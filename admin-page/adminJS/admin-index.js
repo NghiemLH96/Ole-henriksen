@@ -248,8 +248,10 @@ function removeUser(userId){
 }
 
 function adminLogout(){
+    if(confirm("Are you sure to logout ?")){
     localStorage.removeItem("CheckLogin")
     window.location.href="../index.html"
+    }
 }
 
 function permissionAdjust(userId){

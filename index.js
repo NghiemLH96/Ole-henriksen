@@ -263,8 +263,10 @@ checkLogin()
 
 //log out and clear CheckLogin storage
 function logout() {
-    localStorage.removeItem("CheckLogin")
-    checkLogin()
+    if(confirm("Are you sure to logout ?")){
+        localStorage.removeItem("CheckLogin")
+        window.location.href = "../index.html"
+    }
 }
 
 //add product to user cart then render again

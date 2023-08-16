@@ -97,6 +97,9 @@ body {
     display: flex;
     align-items: center;
 }
+.btnHover:hover{
+    color: #FFFFFF;
+}
 
 .search__btn {
     border: none;
@@ -290,6 +293,10 @@ body {
     width: 24.9%;
     height: 500px;
     background-color: #ffffff;
+    transition: all 1s;
+}
+.product:hover{
+    scale: 1.1;
 }
 
 .product__Img {

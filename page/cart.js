@@ -102,8 +102,10 @@ function adjustQuantity(productId, type) {
 
 //log out and clear CheckLogin storage
 function logout() {
-    localStorage.removeItem("CheckLogin")
-    window.location.href = "../index.html"
+    if(confirm("Are you sure to logout ?")){
+        localStorage.removeItem("CheckLogin")
+        window.location.href = "../index.html"
+    }
 }
 
 //remove accent and uppercase of search input

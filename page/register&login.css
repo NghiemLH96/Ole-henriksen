@@ -79,6 +79,7 @@ body {
 }
 
 .Form__pageTitle {
+    padding: 20px 0px;
     font-size: 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
