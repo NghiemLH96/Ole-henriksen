@@ -363,7 +363,7 @@ function sortByPrice() {
         })
     }
     PriceSortFlag = !PriceSortFlag;
-    renderProduct(productSort)
+    renderProduct(productList)
 }
 
 function sortByRate() {
