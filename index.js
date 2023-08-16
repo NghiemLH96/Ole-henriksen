@@ -363,7 +363,7 @@ function sortByPrice() {
         })
     }
     PriceSortFlag = !PriceSortFlag;
-    renderProduct(productList)
+    renderProduct(productSort)
 }
 
 function sortByRate() {
@@ -371,7 +371,7 @@ function sortByRate() {
     let productSort = productList.sort((a, b) => {
         return b.rating - a.rating
     })
-    renderProduct(productList)
+    renderProduct(productSort)
 }
 
 //remove input accent and upper case when search

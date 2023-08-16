@@ -267,6 +267,7 @@ function permissionAdjust(userId){
         let user = usersList.find(item => item.id == userId);
         user.role = permission;
         localStorage.setItem("usersList",JSON.stringify(usersList));
+        renderUserManager()
     }else{
         alert("permission only be 0 or 1")
     }
