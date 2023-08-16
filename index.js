@@ -381,7 +381,7 @@ function removeAccentLowerCase(str) {
 
 //search product by name 
 function search() {
-    let allProduct = [...JSON.parse(localStorage.getItem("productsList"))] || []
+    let allProduct = filterProduct || [];
     let searchInput = document.getElementById("search_input").value;
     allProduct = allProduct.filter(item => removeAccentLowerCase(item.productName).includes(removeAccentLowerCase(searchInput)))
     renderProduct(allProduct)
@@ -404,12 +404,13 @@ function activeCatalogue(active) {
         }
     }
 }
-
+let filterProduct =[];
 function productFilter(productCatalogue) {
     let productList = JSON.parse(localStorage.getItem("productsList")) || []
     if (productCatalogue == "ALL PRODUCT") {
         document.getElementsByClassName("productList__title")[0].innerText = "SHOP ALL PRODUCT"
-        displayPrductList = productList
+        filterProduct = productList
+        displayPrductList = filterProduct
         renderPage(displayPrductList)
         activeCatalogue(productCatalogue)
         renderProduct(productsList)
@@ -417,7 +418,7 @@ function productFilter(productCatalogue) {
         return;
     } else if (productCatalogue == `BESTSELLER`) {
         document.getElementsByClassName("productList__title")[0].innerText = "BEST SELLER"
-        let filterProduct = productList.filter(item => item.introduceText == "BESTSELLER")
+        filterProduct = productList.filter(item => item.introduceText == "BESTSELLER")
         displayPrductList = filterProduct
         renderPage(displayPrductList)
         activeCatalogue(productCatalogue)
@@ -426,7 +427,7 @@ function productFilter(productCatalogue) {
         return;
     } else {
         document.getElementsByClassName("productList__title")[0].innerText = productCatalogue;
-        let filterProduct = productList.filter(item => item.catalogue == productCatalogue)
+        filterProduct = productList.filter(item => item.catalogue == productCatalogue)
         displayPrductList = filterProduct
         renderPage(displayPrductList)
         activeCatalogue(productCatalogue)
@@ -454,3 +455,30 @@ function showSlide() {
 }
 showSlide()
 setInterval("showSlide()",5000)
+
+/* banner change text */
+let count=0;
+function changeText() {
+    if (count==0) {
+        document.getElementById("footerAdsBanner__changeText").innerText=`IS BOUNCY`;
+        count++;
+        return;
+    }else if(count==1){
+        document.getElementById("footerAdsBanner__changeText").innerText=`IS BRIGHT`;
+        count++;
+        return;
+    }else if(count==2){
+        document.getElementById("footerAdsBanner__changeText").innerText=`IS DEWY`;
+        count++;
+        return;
+    }else if(count==3){
+        document.getElementById("footerAdsBanner__changeText").innerText=`IS FRESH`;
+        count++;
+        return;
+    }else if(count==4){
+        document.getElementById("footerAdsBanner__changeText").innerText=`IS SMOOTH`;
+        count=0;
+        return;
+    }
+}
+setInterval(changeText,1000)

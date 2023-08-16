@@ -557,7 +557,63 @@ body {
     color: rgb(252, 110, 110);
     transform: scale(1);
 }
-
+.footerAdsBanner__img{
+    height: 500px;
+    cursor: pointer;
+}
+.footerAdsBanner{
+    height: 500px;
+    position: relative;
+}
+.footerAdsBanner__link{
+    font-size: 20px ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    color: #FFFFFF;
+    position: absolute;
+    left: 695px;
+    top: 245px;
+}
+.footerAdsBanner__link2{
+    font-size: 20px ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    color: #FFFFFF;
+    position: absolute;
+    left: 695px;
+    top: 335px;
+}
+.footerAdsBanner__text{
+    font-size: 40px ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    color: #FFFFFF;
+    position: absolute;
+    text-align: center;
+    line-height: 40px;
+    left: 620px;
+    top: 150px;
+}
+/* companyEmail */
+.companyEmail{
+    height: 260px;
+    width: 1521.7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+}
+.companyEmail__followAccount{
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+}
+.companyEmail__followRecomment{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+}
 /* footer */
 .footer {
     position: relative;

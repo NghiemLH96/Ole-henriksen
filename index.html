@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop All Skincare</title>
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./index&cart.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -44,7 +44,8 @@
                                 class="material-symbols-outlined iconBox__icon">
                                 search
                             </span></button>
-                        <input id="search_input" class="search_input" oninput="search()" type="text" placeholder="Search">
+                        <input id="search_input" class="search_input" oninput="search()" type="text"
+                            placeholder="Search">
                     </div>
                     <a href="./page/login.html" id="login_icon"><span onclick=""
                             class="material-symbols-outlined iconBox__icon">
@@ -61,17 +62,30 @@
                         <span class="cartBox__totalProducts" id="cartBox__totalProducts"></span>
                     </div>
                 </nav>
-            </div> 
+            </div>
         </div>
     </header>
     <div class="body">
         <section class="productList">
-            
+            <div class="slideShow__container">
+                <div class="slides fade">
+                    <img class="slides__img" src="./Asset/CAROUSEL/banner1.png" alt="">
+                </div>
+                <div class="slides fade">
+                    <img class="slides__img" src="./Asset/CAROUSEL/banner2.png" alt="">
+                </div>
+                <div class="slides fade">
+                    <img class="slides__img" src="./Asset/CAROUSEL/banner3.png" alt="">
+                </div>
+                <div class="slides fade">
+                    <img class="slides__img" src="./Asset/CAROUSEL/banner4.png" alt="">
+                </div>
+            </div>
             <div class="productList__banner">
                 <img src="./Asset/Shop-all-product/OH_BananaSerum_TruthCollectionDesktopBanner-002-scaled.jpg" alt="">
                 <h1 class="productList__title">SHOP ALL SKINCARE</h1>
             </div>
-            
+
             <div class="productList__sumaryBanner">
                 <span id="total"></span>
                 <div class="productList__sumaryBanner__buttonBox">
@@ -95,6 +109,7 @@
             </div>
             <div id="productContainer" class="producList-container">
 
+
             </div>
             <div class="producList__textBox">
                 <p class="producList__textBox__text">Find skincare that delivers results for your skin type or skin
@@ -115,19 +130,25 @@
                         <span onclick="nextPage()" id="producList__pagination__next-btn"
                             class="producList__pagination__page">NEXT ></span>
             </div>
-            <div class="slideShow__container">
-                <div class="slides fade">
-                    <img class="slides__img" src="./Asset/CAROUSEL/banner1.png" alt="">
+            <div>
+                <div class="footerAdsBanner">
+                    <nav>
+                        <a class="footerAdsBanner__link" href="">GET THE GLOW</a>
+                    </nav>
+                    <div class="footerAdsBanner__text">
+                        <p>THE OLE GLOW</p>
+                        <p id="footerAdsBanner__changeText"></p>
+                    </div>
+                    <img width="1521.7px" height="500px" id="adsImg" src="./Asset/banner9.1.png" alt="">
                 </div>
-                <div class="slides fade">
-                    <img class="slides__img" src="./Asset/CAROUSEL/banner2.png" alt="">
+                <div class="footerAdsBanner">
+                    <img width="1521.7px" height="500px" class="footerAdsBanner__img" src="./Asset/banner11.png" alt="">
+                        <a class="footerAdsBanner__link2" href="">GET TO KNOW US</a>
                 </div>
-                <div class="slides fade">
-                    <img class="slides__img" src="./Asset/CAROUSEL/banner3.png" alt="">
-                </div>
-                <div class="slides fade">
-                    <img class="slides__img" src="./Asset/CAROUSEL/banner4.png" alt="">
-                </div>
+            </div>
+            <div class="companyEmail">
+                <p class="companyEmail__followAccount">FOLLOW @OLEHENRIKSEN</p>
+                <p class="companyEmail__followRecomment">FOR YOUR SOCIAL FIX</p>
             </div>
         </section>
     </div>
@@ -187,8 +208,8 @@
         </div>
     </footer>
 
-    <script src="./products.js"></script>
-    <script src="./shop-all-product.js"></script>
+    <!-- <script src="./products.js"></script> -->
+    <script src="./index.js"></script>
 </body>
 
 </html>

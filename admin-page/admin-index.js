@@ -7,6 +7,9 @@ if (localStorage.getItem("CheckLogin")) {
         alert("Only administrator can access admin page!")
         window.location.href="../index.html"
     }
+}else{
+    alert("Only administrator can access admin page!")
+    window.location.href="../index.html"
 }
 
 function renderAdminInfo() {
@@ -245,7 +248,7 @@ function removeUser(userId){
 }
 
 function adminLogout(){
-    localStorage.removeItem("AdminLogin")
+    localStorage.removeItem("CheckLogin")
     window.location.href="../index.html"
 }
 

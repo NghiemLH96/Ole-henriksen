@@ -1,0 +1,229 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F5F5F5;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1px;
+    column-gap: 1px;
+}
+
+.freeship__text {
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: #F5F5F5;
+    padding: 5px 0px;
+    height: 26px;
+}
+
+/* header */
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 83px;
+    padding: 0px 45px;
+    position: sticky;
+}
+
+.brandLogo {
+    height: 19px;
+}
+
+.navbar {
+    display: flex;
+    column-gap: 35px;
+}
+
+.navbar__link {
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    font-size: 15px;
+}
+
+.iconBox {
+    display: flex;
+    column-gap: 19px;
+}
+
+.iconBox__icon {
+    width: 17px;
+    height: 17px;
+    font-size: 22px;
+    font-weight: 400;
+    color: black;
+}
+
+/* body */
+.body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    row-gap: 5px;
+}
+
+.Form__pageTitle {
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.Form__pageInput {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.inputInfo {
+    padding: 20px;
+    width: 60%;
+    height: 65px;
+    border: 2px solid black;
+}
+
+.Form__errorArea {
+    color: red;
+    height: 25px;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Form__Button {
+    background-color: #3D3D3D;
+    color: #ffffff;
+    height: 40px;
+    width: 60%;
+}
+
+.Form__createButton:hover {
+    background-color: #FFFFFF;
+    color: #3D3D3D;
+    transition: all 0.15s;
+}
+
+.Form__errorArea__errorText {
+    display: none;
+}
+/* footer */
+.footer {
+    position: relative;
+    top: 108px;
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F6F6;
+    row-gap: 3px;
+    height: 500px;
+    width: 1521.7px;
+}
+
+.footer__brandDetail {
+    height: 415px;
+    display: flex;
+    column-gap: 3px;
+    background-color: #F6F6F6;
+}
+
+.footer__brandDetail__container1 {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    padding: 65px;
+    row-gap: 20px;
+    min-height: 400px;
+    width: 40%;
+}
+
+.footer__brandDetail__title {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer__brandDetail__signUpDiscount {
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer__brandDetail__input {
+    width: 400px;
+    height: 30px;
+    border: none;
+    background-color: #F6F6F6;
+    padding: 0px 15px;
+}
+
+.footer__brandDetail__text {
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3e3e3e;
+}
+
+.footer__brandDetail__text a {
+    color: #3e3e3e;
+}
+
+.footer__brandDetail__container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #FFFFFF;
+    row-gap: 20px;
+    min-height: 400px;
+    width: 60%;
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    padding: 65px;
+    row-gap: 10px;
+}
+
+.footer__content__title {
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 10;
+}
+
+.footer__content a {
+    color: #3e3e3e;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+
+.footer_socialMedia {
+    height: 85px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 65px;
+}
+
+.footer_socialMedia a {
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3e3e3e;
+    text-decoration: none;
+}
+
+.footer_socialMedia__links {
+    display: flex;
+    column-gap: 20px;
+}

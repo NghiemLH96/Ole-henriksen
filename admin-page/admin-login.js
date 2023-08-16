@@ -44,7 +44,7 @@ function checkInfo(info){
                 document.getElementById("password_formatError").style.display="block";
                 document.getElementById("password_incorrect").style.display="none"
             }else if(admin.password==adminInfo.password){
-                localStorage.setItem("AdminLogin",admin.id)
+                localStorage.setItem("CheckLogin",admin.id)
                 alert("Sign in successed")
                 window.location.href="./admin-index.html"
                 return
