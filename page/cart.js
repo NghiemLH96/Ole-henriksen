@@ -140,3 +140,20 @@ function checkOut() {
         renderCartProduct(user.cart)
     }
 }
+/* slide show */
+let carouselFlag = 0;
+function showSlide() {
+    carouselFlag++
+    console.log(carouselFlag);
+    let slides = document.getElementsByClassName("slides");
+    console.log(slides);
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display="none"
+    }
+    if (carouselFlag==slides.length) {
+        carouselFlag=0
+    }
+    slides[carouselFlag].style.display="block"
+}
+showSlide()
+setInterval("showSlide()",5000)
